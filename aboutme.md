@@ -1,16 +1,21 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: ""
+subtitle: A bit about me...
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+## *Welcome!*
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+My name is Martha Zillig (previously Wohlfeil), and I built this website as a place where I can share my experiences as a PhD student at the University of California, Davis and my mostly-related exploits using R. I am a fourth year PhD student studying avian movement ecology (amoung other things), and I lead and teach a few R and ecological modeling related courses/clubs (see the "Resources" tab). I am by no means an expert in R or Statistical Modeling, but I enjoy creating resources for graduate students and learning through teaching! 
 
-What else do you need?
+| ![](/img/martha_work2.JPG) | 
+|:--:| 
+| *Me and my dog Indiana collecting data on bird abundance* |
 
-### my history
+When I'm not graduate-student-ing, I like to cook, read fantasy novels, run, and fail miserably at growing a vegtable garden. My husband's name is Ken, and he is also a graduate student at UC Davis studying salmon physiology. But he's an awesome birder too, and sometimes comes out to the field to be my assistant! 
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+| ![](/img/family_work2.JPG) |
+|:--:| 
+| *Ken, Indy, and I setting up data loggers* |
+
+As a PhD student in Dr. Erica Fleishman's lab at UC Davis studying avian biogeography in the Great Basin, I am interested in understanding why and how birds choose different locations to live. My PhD work examines avian elevational movements across a single breeding season and across multiple years (a potential form of range shifts), as well as avian vegetational assocations across the Great Basin. Check out the research tab for more info! 
