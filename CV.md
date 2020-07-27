@@ -6,7 +6,7 @@ subtitle: Curriculum Vitae
 
 <br>
 
-If the embedded document is not displaying properly, you [can download the PDF](/pdf/Zillig_CV1.pdf). 
+If the embedded document is not displaying properly, you [can download the PDF](/pdf/Zillig_CV_2.pdf). 
 
 <object data="/pdf/Zillig_CV1.pdf" type="application/pdf" width="800px" height="800px">
     <embed src="/pdf/Zillig_CV1.pdf">

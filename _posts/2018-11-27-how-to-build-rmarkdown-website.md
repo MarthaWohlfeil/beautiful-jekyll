@@ -22,7 +22,7 @@ That's it!
 
 The first thing you need to do is create a new repository in your github account. Once you are in your account click on the link that says "new."
 
-Name your new repository yourname.github.io. I'm going to create a website for Harry Potter so I named my website *harrypotter.github.io*
+Name your new repository yourgithubusername.github.io. I'm going to create a website for Harry Potter, who's github username is harrypotter so I named my website *harrypotter.github.io*. If you are just setting up your github account, now is a great time to think about what your username is going to be, since it will also be the url of your website. It's possible to create a github website with a url different than yourusername.github.io, but I am not going to cover that here. 
 
 This will be your website's address!
 
