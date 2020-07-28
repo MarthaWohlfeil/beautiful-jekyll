@@ -2,7 +2,6 @@
 title: "Elevational Movements"
 output: 
   flexdashboard::flex_dashboard
-runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
@@ -13,7 +12,7 @@ knitr::opts_knit$set(root.dir = normalizePath("../"))
 
 ```
 
-# Objectives
+# Projects
 
 ##  Overview {.sidebar}
 
@@ -204,41 +203,33 @@ leaflet() %>%
 
 ```
 
-# Within Season Movements  
+# Within Season Dispersal  
 
 ## Example {.sidebar}
 
-### Within Season Elevational Movements
+### Within Season Elevational Dispersal
 
 By building statistical models that examine changes in where birds actually are at different time points in the breeding season, I was able to determine that at least six species of bird are moving elevationally within the breeding season. Why are these birds moving and others are not? Why is driving that movement? 
 
-Row 
-------------------------------------------
+I tested a total of 25 bird species in the western and central Great Basin sites. Of those 25, I found that 6 species were moving elevationally within their breeding season. Check out the tabs below to view figures that illustrate how site availability (a bird actually using a site) changes both elevationally and temporally (Visit 1 = earliest in the season, Visit 2 = latest in the season)
+
+Row
+---------------------------------------------------------------------------
 
 ### Why move? 
 
-There are three main hypotheses about *why* a bird would switch territories:
+There are multiple hypotheses about why a bird would switch terriroties within its breeding season. At our sites, I believe within season dispersal is linked to environmental heterogenetiy. Environmental heterogeneity means that resources are dispersed across a landscape both spatially and temporally. The environmental heterogenetiy hypothesis posits that an individual bird might switch nest sites for a second brood or after an unsucessful nest to take advantage of more/better resources somwhere else. 
 
-1. **Competition**: It might make sense for birds to move nest sites to avoid heavy competition. 
-
-2. **Predation**: This mainly pertains to nest predation. Depending on the time in the season when a nest is predated, it would make sense for birds to switch territories to avoid another predation event. 
-
-3. **Environmental Heterogenetiy**: If resources or other environmental variables are depleating at different rates across a landscape, birds might be switching nest sites to take advantage of better resources. 
-
-Working in sites with big elevational gradients has allowed me to test the Environmental Heterogeneity hypothesis. Elevation plays a big role in when in the season a single site will have enough resources for nesting birds. Check out the two pictures below. They are from one of our sites in the western Great Basin, taken just a few weeks apart. In the first picture, taken early in the breeding season, this site is not suitable for most species of birds to nest it. However, just a few weeks later, all the snow has melted and plants are quickly greening up. Could these differences in resource phenology at different elevations drive avian movements? 
+Working in sites with big elevational gradients has allowed me to test this hypothesis. Elevation plays a big role in when in the season a single site will have enough resources for nesting birds. Check out the two pictures below. They are from one of our sites in the western Great Basin, taken just a few weeks apart. In the first picture, taken early in the breeding season, this site is not suitable for most species of birds to nest in. However, just a few weeks later, all the snow has melted and plants are quickly greening up. Could these differences in resource phenology at different elevations drive avian movements? 
 
 ![](img/pheno_VL.JPG)
 
-Row
+Row {.tabset .tabset-fade .tabset-pills}
 --------------------------------------------------------------
-
-### Who Moves?
-
-By building statistical models that examine changes in site availability over a breeding season, I was able to determine six species of birds that move elevationally. Choose a species of bird to view how its site use changes over elevation and over time. Visit 1 is earliest in the season, and Visit 3 is latest in the season. 
 
 ```{r global, include=FALSE}
 
-#setwd("../marthazillig.github.io/marthazillig.github.io")
+setwd("../marthazillig.github.io/marthazillig.github.io")
 
 
 library(tidyverse)
@@ -247,15 +238,17 @@ slope_data <- read_csv("/Users/Martha Wohlfeil/Desktop/GitHub Files/marthazillig
 
 ```
 
-## Species that Disperse {.tabset .tabset-fade .tabset-pills}
+
 
 ### <small>Vesper Sparrow</small>
 
-Vesper Sparrows move upslope in the central Great Basin within the breeding season 
+Vesper Sparrows move **upslope** in the central Great Basin within the breeding season 
 
 ```{r}
 library(cowplot)
 library(tidyverse)
+
+
 
 VESP<- slope_data %>% 
   filter(Species == "Vesper_Sparrow")
@@ -269,15 +262,21 @@ v2_vesp <- ggplot() +
 v3_vesp <- ggplot() + 
    geom_abline(slope = VESP$V3, intercept = 0) +xlim(0, 3) + ylim(0, 3) + ggtitle("Visit 3") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
 
-plot_grid(v1_vesp, v2_vesp, v3_vesp, ncol = 3, nrow =1)
+vesp_pic <- ggdraw()+ draw_image("marthazillig.github.io/img/brsp.jpg", scale = 0.8)
+
+cowplot::plot_grid(v1_vesp, v2_vesp, v3_vesp, NULL, vesp_pic, ncol = 3, nrow =2)
 
 ```
 
+
+
 ### <small>Green-Tailed Towhee</small>
 
-Green-tailed Towhees move downslope in the western Great Basin within the breeding season 
+Green-tailed Towhees move **downslope** in the western Great Basin within the breeding season. 
+
 
 ```{r}
+
 
 
 GTTO <- slope_data %>% 
@@ -292,9 +291,107 @@ v2_gtto <- ggplot() +
 v3_gtto <- ggplot() + 
    geom_abline(slope = GTTO$V3, intercept = 0) +xlim(0, 3) + ylim(-2,0) + ggtitle("Visit 3") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
 
-plot_grid(v1_gtto, v2_gtto, v3_gtto, ncol = 3, nrow =1)
+gtto_pic <- ggdraw()+ draw_image("marthazillig.github.io/img/gtto.jpg", scale = 0.8)
+
+plot_grid(v1_gtto, v2_gtto, v3_gtto, NULL, gtto_pic, ncol = 3, nrow =2)
 
 ```
 
+### <small>Broad-tailed Hummingbird</small>
+
+Broad-tailed Hummingbirds move **upslope** in the central Great Basin within the breeding season 
+
+```{r}
+
+BTAH <- slope_data %>% 
+  filter(Species == "Broad-tailed_Hummingbird")
+
+v1_btah <- ggplot() + 
+   geom_abline(slope = BTAH$V1, intercept = 0) +xlim(0, 3) + ylim(0,3) + ggtitle("Visit 1") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+v2_btah <- ggplot() + 
+   geom_abline(slope = BTAH$V2, intercept = 0) +xlim(0, 3) + ylim(0,3) + ggtitle("Visit 2") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+v3_btah <- ggplot() + 
+   geom_abline(slope = BTAH$V3, intercept = 0) +xlim(0, 3) + ylim(0,3) + ggtitle("Visit 3") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+btah_pic <- ggdraw()+ draw_image("marthazillig.github.io/img/btah.jpg", scale = 0.8)
+
+plot_grid(v1_btah, v2_btah, v3_btah, NULL, btah_pic, ncol = 3, nrow =2)
+
+```
+
+### <small>MacGillivray's Warbler</small>
+
+In both the western and central Great Basin, MacGillivray's Warblers move **upslope** within the breeding season. This figure is the slopes of the western Great Basin model output. 
+```{r}
 
 
+MGWA <- slope_data %>% 
+  filter(Species == "MacGillivray's_Warbler") %>% 
+  filter(Region == "Western")
+
+v1_mgwa <- ggplot() + 
+   geom_abline(slope = MGWA$V1, intercept = 0) +xlim(0, 3) + ylim(0,3) + ggtitle("Visit 1") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+v2_mgwa <- ggplot() + 
+   geom_abline(slope = MGWA$V2, intercept = 0) +xlim(0, 3) + ylim(0,3) + ggtitle("Visit 2") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+v3_mgwa <- ggplot() + 
+   geom_abline(slope = MGWA$V3, intercept = 0) +xlim(0, 3) + ylim(0,3) + ggtitle("Visit 3") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+mgwa_pic <- ggdraw()+ draw_image("marthazillig.github.io/img/mgwa.jpg", scale = 0.8)
+
+plot_grid(v1_mgwa, v2_mgwa, v3_mgwa, NULL, mgwa_pic, ncol = 3, nrow =2)
+
+```
+
+### <small>Brewer's Sparrow</small>
+
+Brewer's Sparrows move **upslope** within the breeding season in the western Great Basin 
+
+```{r}
+
+
+BRSP <- slope_data %>% 
+  filter(Species == "Brewer's_Sparrow")
+
+v1_brsp <- ggplot() + 
+   geom_abline(slope = BRSP$V1, intercept = 0) +xlim(0, 3) + ylim(0,3) + ggtitle("Visit 1") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+v2_brsp <- ggplot() + 
+   geom_abline(slope = BRSP$V2, intercept = 0) +xlim(0, 3) + ylim(0,3) + ggtitle("Visit 2") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+v3_brsp <- ggplot() + 
+   geom_abline(slope = BRSP$V3, intercept = 0) +xlim(0, 3) + ylim(0,3) + ggtitle("Visit 3") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+brsp_pic <- ggdraw()+ draw_image("marthazillig.github.io/img/brsp2.jpg", scale = 0.8)
+
+plot_grid(v1_brsp, v2_brsp, v3_brsp, NULL, brsp_pic, ncol = 3, nrow =2)
+
+```
+
+### <small>Yellow Warbler</small>
+
+Yellow Warblers move **upslope** within the breeding season in the central Great Basin. 
+
+```{r}
+
+
+YEWA <- slope_data %>% 
+  filter(Species == "Yellow_Warbler") 
+
+v1_yewa <- ggplot() + 
+   geom_abline(slope = YEWA$V1, intercept = 0) +xlim(0, 3) + ylim(0,3) + ggtitle("Visit 1") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+v2_yewa <- ggplot() + 
+   geom_abline(slope = YEWA$V2, intercept = 0) +xlim(0, 3) + ylim(0,3) + ggtitle("Visit 2") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+v3_yewa <- ggplot() + 
+   geom_abline(slope = YEWA$V3, intercept = 0) +xlim(0, 3) + ylim(0,3) + ggtitle("Visit 3") + xlab("Elevation") + ylab("Site Use") +  theme_bw() + theme(plot.title = element_text(hjust = 0.5))
+
+yewa_pic <- ggdraw()+ draw_image("marthazillig.github.io/img/yewa.jpg", scale = 0.8)
+
+plot_grid(v1_yewa, v2_yewa, v3_yewa, NULL, yewa_pic, ncol = 3, nrow =2)
+
+```

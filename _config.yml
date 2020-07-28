@@ -18,7 +18,7 @@ navbar-links:
   About:
     - About Me: "aboutme"
     - CV: "CV"
-  Research: "flexdashboard_elevation.html"
+  Research: "flexdashboard_elevation2.html"
   Resources:   
     - R-DAVIS Course: "https://gge-ucd.github.io/R-DAVIS/"
     - Davis R Users Group: "https://d-rug.github.io/"
