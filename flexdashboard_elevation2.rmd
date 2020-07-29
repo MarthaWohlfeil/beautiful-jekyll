@@ -18,7 +18,7 @@ knitr::opts_knit$set(root.dir = normalizePath("../"))
 
 ### Overview
 
-My research is broadly focused on how climate change will affect an organism's ability to adapt to their envrionment, and more specifcially focused on how movement into more suitable environments is a solution organisms might utalize. To examine these ideas, I have developed projects that look at avian movement ecology and biogeography in the Great Basin. By looking at patterns in avian abundance both temporatlly and spatially, I hope to better understand how climate change will impact avian communities into the future. 
+My research is broadly focused on how climate change will affect an organism's ability to adapt to their environment, and more specifically focused on how movement into more suitable environments is a solution organisms might utilize. To examine these ideas, I have developed projects that look at avian movement ecology and biogeography in the Great Basin. By looking at patterns in avian abundance both temporally and spatially, I hope to better understand how climate change will impact avian communities into the future. 
 
 
 
@@ -218,7 +218,7 @@ Row
 
 ### Why move? 
 
-There are multiple hypotheses about why a bird would switch terriroties within its breeding season. At our sites, I believe within season dispersal is linked to environmental heterogenetiy. Environmental heterogeneity means that resources are dispersed across a landscape both spatially and temporally. The environmental heterogenetiy hypothesis posits that an individual bird might switch nest sites for a second brood or after an unsucessful nest to take advantage of more/better resources somwhere else. 
+There are multiple hypotheses about why a bird would switch territories within its breeding season. At our sites, I believe within season dispersal is linked to environmental heterogeneity. Environmental heterogeneity means that resources are dispersed across a landscape both spatially and temporally. The environmental heterogeneity hypothesis posits that an individual bird might switch nest sites for a second brood or after an unsuccessful nest to take advantage of more/better resources somewhere else. 
 
 Working in sites with big elevational gradients has allowed me to test this hypothesis. Elevation plays a big role in when in the season a single site will have enough resources for nesting birds. Check out the two pictures below. They are from one of our sites in the western Great Basin, taken just a few weeks apart. In the first picture, taken early in the breeding season, this site is not suitable for most species of birds to nest in. However, just a few weeks later, all the snow has melted and plants are quickly greening up. Could these differences in resource phenology at different elevations drive avian movements? 
 
